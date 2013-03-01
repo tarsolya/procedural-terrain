@@ -8,13 +8,32 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/jquery-ui.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/ppb8rea.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-    <header>
-      <h1>Legends</h1>
-    </header>
-
+    <div id="controls">
+      <h1>FRONTIER</h1>
+      <div id="info">
+        <p id="coords">X: <span id="canvas_x">0</span> Y: <span id="canvas_y">0</span></p>
+      </div>
+      <div id="generating"></div>
+      <div id="painting">
+        <p>WATERLINE <span id="waterline_value"></span></p>
+        <div id="waterline" class="ui-slider"></div>
+        <p>SHALLOWS OFFSET <span id="shallows_offset"></span></p>
+        <div id="shallows" class="ui-slider"></div>
+        <p>SHORELINE OFFSET <span id="shoreline_offset"></span></p>
+        <div id="shoreline" class="ui-slider"></div>
+        <p>PLAINS OFFSET <span id="plains_offset"></span></p>
+        <div id="plains" class="ui-slider"></div>
+        <p>MOUNTAINS OFFSET <span id="mountains_offset"></span></p>
+        <div id="mountains" class="ui-slider"></div>
+      </div>
+      <button id="apply" class="btn btn-small btn-primary">Apply Changes</button>
+    </div>
 
     <!-- build:js scripts/amd-app.js -->
     <script data-main="scripts/main" src="scripts/vendor/require.js"></script>

@@ -1,5 +1,5 @@
 define [
-  'jquery',
+  'jquery-ui',
   'canvas',
   'noise',
   'db'
@@ -33,3 +33,73 @@ define [
           mapGenerator()
 
       db.load(seed, mapLoader, dbErrorHandler)
+
+      # Waterline
+      $('#waterline_value').text(canvas.waterline)
+      $sliders = $('#waterline')
+      $sliders.slider
+        min: -2
+        max: 2
+        step: 0.02
+        change: (e, ui) ->
+          $('#waterline_value').text(ui.value)
+          canvas.setWaterline(parseFloat(ui.value))
+          canvas.render(map)
+
+      # Shallows offset
+      $('#shallows_offset').text(canvas.shallows)
+      $sliders = $('#shallows')
+      $sliders.slider
+        min: 0.0
+        max: 1
+        step: 0.01
+        change: (e, ui) ->
+          $('#shallows_offset').text(ui.value)
+          canvas.setShallowsOffset(parseFloat(ui.value))
+          canvas.render(map)
+
+      # Shoreline offset
+      $('#shoreline_offset').text(canvas.shoreline)
+      $sliders = $('#shoreline')
+      $sliders.slider
+        min: 0.0
+        max: 0.20
+        step: 0.01
+        change: (e, ui) ->
+          $('#shoreline_offset').text(ui.value)
+          canvas.setShorelineOffset(parseFloat(ui.value))
+          canvas.render(map)
+
+      # Plains offset
+      $('#plains_offset').text(canvas.plains)
+      $sliders = $('#plains')
+      $sliders.slider
+        min: 0.0
+        max: 2.00
+        step: 0.05
+        change: (e, ui) ->
+          $('#plains_offset').text(ui.value)
+          canvas.setPlainsOffset(parseFloat(ui.value))
+          canvas.render(map)
+
+      # Mountains offset
+      $('#mountains_offset').text(canvas.mountains)
+      $sliders = $('#mountains')
+      $sliders.slider
+        min: 0.0
+        max: 2.00
+        step: 0.05
+        change: (e, ui) ->
+          $('#mountains_offset').text(ui.value)
+          canvas.setMountainsOffset(parseFloat(ui.value))
+          canvas.render(map)
+
+      $canvas = $(canvas.getCanvas())
+      $canvas.on 'mousemove', (e) ->
+        pos = canvas.getPosition(e)
+        $('#canvas_x').text(pos.x)
+        $('#canvas_y').text(pos.y)
+
+      $('#apply').on 'click', (e) ->
+        canvas.render(map)
+
