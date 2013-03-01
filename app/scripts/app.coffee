@@ -38,6 +38,7 @@ define [
       $('#waterline_value').text(canvas.waterline)
       $sliders = $('#waterline')
       $sliders.slider
+        value: parseFloat(canvas.waterline)
         min: -2
         max: 2
         step: 0.02
@@ -50,6 +51,7 @@ define [
       $('#shallows_offset').text(canvas.shallows)
       $sliders = $('#shallows')
       $sliders.slider
+        value: parseFloat(canvas.shallows)
         min: 0.0
         max: 1
         step: 0.01
@@ -62,6 +64,7 @@ define [
       $('#shoreline_offset').text(canvas.shoreline)
       $sliders = $('#shoreline')
       $sliders.slider
+        value: parseFloat(canvas.shoreline)
         min: 0.0
         max: 0.20
         step: 0.01
@@ -74,6 +77,7 @@ define [
       $('#plains_offset').text(canvas.plains)
       $sliders = $('#plains')
       $sliders.slider
+        value: parseFloat(canvas.plains)
         min: 0.0
         max: 2.00
         step: 0.05
@@ -86,6 +90,7 @@ define [
       $('#mountains_offset').text(canvas.mountains)
       $sliders = $('#mountains')
       $sliders.slider
+        value: parseFloat(canvas.mountains)
         min: 0.0
         max: 2.00
         step: 0.05
