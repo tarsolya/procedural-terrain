@@ -34,77 +34,31 @@ define [
 
       db.load(seed, mapLoader, dbErrorHandler)
 
-      # Waterline
-      $('#waterline_value').text(canvas.waterline)
-      $sliders = $('#waterline')
-      $sliders.slider
-        value: parseFloat(canvas.waterline)
-        min: -2
-        max: 2
-        step: 0.02
-        change: (e, ui) ->
-          $('#waterline_value').text(ui.value)
-          canvas.setWaterline(parseFloat(ui.value))
-          canvas.render(map)
+      # Controls
+      $('.ui-slider').each (i, slider) ->
+        $el = $(slider)
+        controlName = $el.data('control')
+        controlValue = canvas.getValue(controlName)
+        $outlet = $("span[data-value=#{controlName}]")
+        $outlet.text(controlValue)
+        $el.slider
+          value: parseFloat(controlValue)
+          min: if $el.data('min') then parseFloat($el.data('min')) else 0.0
+          max: if $el.data('max') then parseFloat($el.data('max')) else 1.0
+          step: if $el.data('step') then parseFloat($el.data('step')) else 0.01
+          change: (e, ui) ->
+            $outlet.text(ui.value)
+            canvas.setValue(controlName, ui.value)
+            canvas.render(map)
 
-      # Shallows offset
-      $('#shallows_offset').text(canvas.shallows)
-      $sliders = $('#shallows')
-      $sliders.slider
-        value: parseFloat(canvas.shallows)
-        min: 0.0
-        max: 1
-        step: 0.01
-        change: (e, ui) ->
-          $('#shallows_offset').text(ui.value)
-          canvas.setShallowsOffset(parseFloat(ui.value))
-          canvas.render(map)
-
-      # Shoreline offset
-      $('#shoreline_offset').text(canvas.shoreline)
-      $sliders = $('#shoreline')
-      $sliders.slider
-        value: parseFloat(canvas.shoreline)
-        min: 0.0
-        max: 0.20
-        step: 0.01
-        change: (e, ui) ->
-          $('#shoreline_offset').text(ui.value)
-          canvas.setShorelineOffset(parseFloat(ui.value))
-          canvas.render(map)
-
-      # Plains offset
-      $('#plains_offset').text(canvas.plains)
-      $sliders = $('#plains')
-      $sliders.slider
-        value: parseFloat(canvas.plains)
-        min: 0.0
-        max: 2.00
-        step: 0.05
-        change: (e, ui) ->
-          $('#plains_offset').text(ui.value)
-          canvas.setPlainsOffset(parseFloat(ui.value))
-          canvas.render(map)
-
-      # Mountains offset
-      $('#mountains_offset').text(canvas.mountains)
-      $sliders = $('#mountains')
-      $sliders.slider
-        value: parseFloat(canvas.mountains)
-        min: 0.0
-        max: 2.00
-        step: 0.05
-        change: (e, ui) ->
-          $('#mountains_offset').text(ui.value)
-          canvas.setMountainsOffset(parseFloat(ui.value))
-          canvas.render(map)
-
+      # Canvas position
       $canvas = $(canvas.getCanvas())
       $canvas.on 'mousemove', (e) ->
         pos = canvas.getPosition(e)
         $('#canvas_x').text(pos.x)
         $('#canvas_y').text(pos.y)
 
+      # Apply
       $('#apply').on 'click', (e) ->
         canvas.render(map)
 

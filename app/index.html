@@ -21,16 +21,16 @@
       </div>
       <div id="generating"></div>
       <div id="painting">
-        <p>WATERLINE <span id="waterline_value"></span></p>
-        <div id="waterline" class="ui-slider"></div>
-        <p>SHALLOWS OFFSET <span id="shallows_offset"></span></p>
-        <div id="shallows" class="ui-slider"></div>
-        <p>SHORELINE OFFSET <span id="shoreline_offset"></span></p>
-        <div id="shoreline" class="ui-slider"></div>
-        <p>PLAINS OFFSET <span id="plains_offset"></span></p>
-        <div id="plains" class="ui-slider"></div>
-        <p>MOUNTAINS OFFSET <span id="mountains_offset"></span></p>
-        <div id="mountains" class="ui-slider"></div>
+        <p>WATERLINE <span data-value="waterline"></span></p>
+        <div data-control="waterline" data-min="-2.0" data-max="2.0" class="ui-slider"></div>
+        <p>SHALLOWS OFFSET <span data-value="shallows"></span></p>
+        <div data-control="shallows" data-max="0.5" class="ui-slider"></div>
+        <p>SHORELINE OFFSET <span data-value="shoreline"></span></p>
+        <div data-control="shoreline" data-max="0.5" class="ui-slider"></div>
+        <p>PLAINS OFFSET <span data-value="plains"></span></p>
+        <div data-control="plains" data-max="1.0" class="ui-slider"></div>
+        <p>MOUNTAINS OFFSET <span data-value="mountains"></span></p>
+        <div data-control="mountains" data-max="1.0" class="ui-slider"></div>
       </div>
       <button id="apply" class="btn btn-small btn-primary">Apply Changes</button>
     </div>

@@ -47,6 +47,8 @@ define [
       @setShorelineOffset = (val) -> @shoreline = val
       @setPlainsOffset = (val) -> @plains = val
       @setMountainsOffset = (val) -> @mountains = val
+      @setValue = (name, value) -> this[name] = value if this[name]?
+      @getValue = (name) -> if this[name]? then this[name] else null
 
     render: (map) ->
       console.log "Rendering map (#{@width}, #{@height}) ..." if DEBUG
