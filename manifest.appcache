@@ -1,0 +1,68 @@
+# Legends loaded ... (undefined, #undefined)
+# Legends running ... (undefined, #undefined)
+# Canvas initialized (500, 500) ... (undefined, #undefined)
+# Database initialization failed: Error: SECURITY_ERR: DOM Exception 18 (undefined, #undefined)
+TypeError: 'undefined' is not an object (evaluating 'this.db.transaction')
+
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1 in e
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+  http://localhost:3501/scripts/166e58ba.amd-app.js:1
+CACHE MANIFEST
+
+# Time: Sat Mar 02 2013 01:09:25 GMT+0100 (CET)
+# This manifest was created by confess.js, http://github.com/jamesgpearce/confess
+#
+# Retrieved URL: http://localhost:3501/
+# User-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
+#
+# Config:
+#  task: appcache
+#  userAgent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
+#  wait: 0
+#  consolePrefix: #
+#  verbose: true
+#  appcache:
+#   urlsFromDocument: true
+#   urlsFromRequests: false
+#   cacheFilter: .*
+#   networkFilter: null
+#  url: http://localhost:3501
+#  configFile: /usr/local/share/npm/lib/node_modules/yeoman/lib/support/confess.json
+
+CACHE:
+./main.js
+http://localhost:3501/app/images/glyphicons-halflings-white.png?1362091432
+http://localhost:3501/app/images/glyphicons-halflings.png?1362091432
+http://localhost:3501/styles/images/animated-overlay.gif
+http://localhost:3501/styles/images/ui-bg_flat_0_aaaaaa_40x100.png
+http://localhost:3501/styles/images/ui-bg_flat_75_ffffff_40x100.png
+http://localhost:3501/styles/images/ui-bg_glass_55_fbf9ee_1x400.png
+http://localhost:3501/styles/images/ui-bg_glass_65_ffffff_1x400.png
+http://localhost:3501/styles/images/ui-bg_glass_75_dadada_1x400.png
+http://localhost:3501/styles/images/ui-bg_glass_75_e6e6e6_1x400.png
+http://localhost:3501/styles/images/ui-bg_glass_95_fef1ec_1x400.png
+http://localhost:3501/styles/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+http://localhost:3501/styles/images/ui-icons_222222_256x240.png
+http://localhost:3501/styles/images/ui-icons_2e83ff_256x240.png
+http://localhost:3501/styles/images/ui-icons_454545_256x240.png
+http://localhost:3501/styles/images/ui-icons_888888_256x240.png
+http://localhost:3501/styles/images/ui-icons_cd0a0a_256x240.png
+http://use.typekit.net/badges/default.gif
+http://use.typekit.net/c/7c6c96/nimbus-sans:n4:n9:n7.SKp:F:2,SKt:F:2,Wlm:F:2/d?3bb2a6e53c9684ffdc9a9bf41f5b2a620f3e55bc4d928e35d4fde99431de7b71811e2b14839afc884f321ac008ad49851bb742d311eca54682bde107a87d9d2973646d75e158301699b54ddb0d59aea5e0ae930b53471016736b13a327b25cb75e548cc89052ad250f44e0752ab9dfd81e4e2069331fedb1805c33aab5
+http://use.typekit.net/ppb8rea.js
+scripts/166e58ba.amd-app.js
+scripts/vendor/cf69c6f2.modernizr.min.js
+styles/5b1e0a8c.jquery-ui.css
+styles/a337fdbf.main.css
+
+NETWORK:
+*
