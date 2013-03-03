@@ -1,16 +1,36 @@
 define [
-  'jquery-ui',
-  'canvas',
-  'noise',
-  'db'
-], ($, Canvas, Noise, Db) ->
-
+  'controllers/canvas'
+  'controllers/db'
+  'helpers/filters/fbm'
+  'helpers/filters/smooth'
+  'helpers/noise/simplex'
+], (Canvas, Db, Filter, Smooth, Noise) ->
   class App
     constructor: ->
       console.log 'Legends running ...' if DEBUG
-      seed = 'Extracirkulár kobold geci'
+      seed = 'marajade'
+      zoom = 256.0
+      x = 0.0
+      y = -256.0
 
+      # Create noise and filters
+      filter = new Filter
       noise = new Noise(seed)
+
+      # Add Fractal Brownian Motion filter to the noise generator
+      filter.setup
+        octaves: 128
+        hurst: 10
+        lacunarity: 2
+        gain: 0.65
+        noiseEngine: noise.engine
+        noiseFunc: 'noise2D'
+      noise.addFilter(0, filter)
+
+      # Smooth the noise output
+      smooth = new Smooth
+      noise.addPostProcessor(0, smooth)
+
       canvas = new Canvas id: '#c', width: 500, height: 500
       db = new Db
 
@@ -19,7 +39,8 @@ define [
       saveHandler = () -> console.log "Stored map for seed: #{seed}" if DEBUG
 
       mapGenerator = ->
-        map = noise.smooth(noise.simplex2D(canvas.width, canvas.height))
+        # Generate heightmap based on seed
+        map = noise.chunk2D(x, y, canvas.width, canvas.height, zoom)
         db.store seed, JSON.stringify(map), saveHandler, dbErrorHandler
         canvas.render(map)
 
